@@ -1,8 +1,21 @@
 html {
 	box-sizing: border-box;
+
 }
 
 *, *:after, *:before {
 	box-sizing: inherit;
 }
 
+#map {
+	height: 600px;
+	width: 600px;
+}
+
+h4 {
+	text-align: center;
+}
+
+#map, #iframeMap {
+	margin: auto;
+}

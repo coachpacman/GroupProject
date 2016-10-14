@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="styles_TL.css"/>
 </head>
 <body>
-	<div>
+	<div id="iframeMap">
 		<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=1112%20S%20Casino%20Center%20Blvd%2C%20Las%20Vegas%2C%20NV%2089104&key=AIzaSyAYkHnMP2PGflVR8UJH-bX1asixiwotMak" allowfullscreen></iframe>
 	</div>
 	
@@ -26,14 +26,39 @@
 				lng: -115.1525016
 			}
 			var map = new google.maps.Map(document.getElementById("map"), {
-				zoom: 4,
-				center: coordinates
+				zoom: 18,
+				center: coordinates,
+				styles: [
+					{	
+					featureType: 'poi',
+					elementType: 'labels',
+					stylers: [{visibility: 'off'}]
+					}
+				]
 			})
+
+			var contentString = `
+				<h2>Lagoon Valley</h2>
+				<p>Las Vegas' premier find dining seafood experience. Enjoy the freshest seafood the Valley has to offer.</p>
+			`
+
+			var infowindow = new google.maps.InfoWindow({
+				content: contentString,
+				maxWidth: 300
+			});
+
 			var marker = new google.maps.Marker({
-				position: coordinates,
-				map: map
+					position: coordinates,
+					map: map,
+					title: 'Lagoon Valley'
 			})
-		}
+
+			marker.addListener('click', function() {
+			infowindow.open(map, marker)
+			
+			})
+	}
+	
 	</script>
 
 	
