@@ -7,9 +7,43 @@
 	<link rel="stylesheet" href="styles_TL.css"/>
 </head>
 <body>
-	<div></div>
+	<div>
+		<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=1112%20S%20Casino%20Center%20Blvd%2C%20Las%20Vegas%2C%20NV%2089104&key=AIzaSyAYkHnMP2PGflVR8UJH-bX1asixiwotMak" allowfullscreen></iframe>
+	</div>
+	
+
+	<!--Google Map API key: AIzaSyAA7h7EcnyMoDeHV6W5hlR9oty-gYjNpnI -->
+
+	<div id="map"></div>
+
+	<script>
+		//script for rendering map. 
+
+		function initMap() {
+			//coordinates for address. from www.gps-coordinates.net
+			var coordinates = {
+				lat: 36.1583864,
+				lng: -115.1525016
+			}
+			var map = new google.maps.Map(document.getElementById("map"), {
+				zoom: 4,
+				center: coordinates
+			})
+			var marker = new google.maps.Marker({
+				position: coordinates,
+				map: map
+			})
+		}
+	</script>
+
 	
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvXyBl_uPBIYJlGfGn_XzF5omkOzpmSYw&callback=initMap">
+	</script>
+
+	<!-- 	Google Map API key: for immediate above script: AIzaSyAvXyBl_uPBIYJlGfGn_XzF5omkOzpmSYw -->
+
 	<script src="main_TL.js"></script>
 
 </body>
